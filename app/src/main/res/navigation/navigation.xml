@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/reposListFragment">
+    <fragment
+        android:id="@+id/reposListFragment"
+        android:name="com.talmir.sip.task.githubpublicrepositories.screens.main.ReposListFragment"
+        android:label="repos_list_fragment"
+        tools:layout="@layout/repos_list_fragment" >
+        <action
+            android:id="@+id/action_reposListFragment_to_repoDetailsFragment2"
+            app:destination="@id/repoDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoDetailsFragment"
+        android:name="com.talmir.sip.task.githubpublicrepositories.screens.details.RepoDetailsFragment"
+        android:label="repo_details_fragment"
+        tools:layout="@layout/repo_details_fragment" >
+        <action
+            android:id="@+id/action_repoDetailsFragment2_to_reposListFragment"
+            app:destination="@id/reposListFragment"
+            app:popUpTo="@+id/reposListFragment" />
+    </fragment>
+</navigation>

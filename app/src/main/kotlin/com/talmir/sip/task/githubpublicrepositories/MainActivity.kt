@@ -2,6 +2,7 @@ package com.talmir.sip.task.githubpublicrepositories
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.talmir.sip.task.githubpublicrepositories.R
 
 class MainActivity : AppCompatActivity() {
 
