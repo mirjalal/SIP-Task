@@ -1,13 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".screens.main.ReposListFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <variable
+            name="reposListViewModel"
+            type="com.talmir.sip.task.githubpublicrepositories.screens.main.ReposListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".screens.main.ReposListFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/recyclerViewStartEndMargin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/recyclerViewTopBottomMargin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/recyclerViewStartEndMargin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottomGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/recyclerViewTopBottomMargin" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/signedDocsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="8dp"
+            app:adapter="@{reposListViewModel}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@id/topGrid"
+            app:layout_constraintEnd_toEndOf="@id/endGrid"
+            app:layout_constraintStart_toStartOf="@id/startGrid"
+            app:layout_constraintTop_toTopOf="@id/bottomGrid"
+            tools:itemCount="10"
+            tools:listitem="@layout/repos_list_item" />
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/error_while_loading_repositories"
+            android:drawableTop="@drawable/ic_loading_animation_large"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

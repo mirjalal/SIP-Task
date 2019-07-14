@@ -1,7 +1,7 @@
-package com.talmir.sip.task.githubpublicrepositories
+package com.talmir.sip.task.githubpublicrepositories.screens
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.talmir.sip.task.githubpublicrepositories.R
 
 class MainActivity : AppCompatActivity() {

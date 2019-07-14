@@ -6,28 +6,33 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 
 import com.talmir.sip.task.githubpublicrepositories.R
+import com.talmir.sip.task.githubpublicrepositories.databinding.RepoDetailsFragmentBinding
 
+/**
+ * A UI controller to show a repository details.
+ */
 class RepoDetailsFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = RepoDetailsFragment()
-    }
-
-    private lateinit var viewModel: RepoDetailsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.repo_details_fragment, container, false)
+        val binding = RepoDetailsFragmentBinding.inflate(inflater)
+
+        val repoItem = RepoDetailsFragmentArgs.fromBundle(arguments!!).repoItem
+        val factory = RepoDetailsViewModelFactory(repoItem)
+        val viewModel =
+            ViewModelProviders.of(this, factory).get(RepoDetailsViewModel::class.java)
+
+        binding.repoDetailsViewModel = viewModel
+        binding.lifecycleOwner = this
+
+//            getString(R.string.repository_details).format(repoItem.name)
+
+
+        return binding.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        viewModel = ViewModelProviders.of(this).get(RepoDetailsViewModel::class.java)
-    }
-
 }

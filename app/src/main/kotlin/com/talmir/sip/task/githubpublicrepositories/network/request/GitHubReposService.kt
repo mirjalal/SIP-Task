@@ -2,13 +2,14 @@ package com.talmir.sip.task.githubpublicrepositories.network.request
 
 import com.talmir.sip.task.githubpublicrepositories.network.response.models.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * A public interface that exposes the [getPublicRepos] function.
  */
 internal interface GitHubReposService {
-    @GET("")
-    suspend fun getPublicRepos(): retrofit2.Response<Response>
+    @GET("repositories?q=is:public&per_page=10")
+    suspend fun getPublicRepos(@Query("page") pageNumber: Int): retrofit2.Response<Response>
 }
 
 object GitHubReposApi {

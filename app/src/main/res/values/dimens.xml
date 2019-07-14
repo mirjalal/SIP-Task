@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recyclerViewStartEndMargin">8dp</dimen>
+    <dimen name="recyclerViewTopBottomMargin">6dp</dimen>
+    <dimen name="recyclerViewItemTopBottomMargin">2dp</dimen>
+
+    <dimen name="cardViewStrokeWidth">1dp</dimen>
+    <dimen name="cardViewBorderRadius">3dp</dimen>
+
+    <dimen name="fourDp">4dp</dimen>
+    <dimen name="twelveDp">12dp</dimen>
+    <dimen name="sixteenDp">16dp</dimen>
+    <dimen name="avatar_size">64dp</dimen>
+    <dimen name="details_screen_avatar_size">128dp</dimen>
+</resources>

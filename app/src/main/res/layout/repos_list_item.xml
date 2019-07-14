@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="repoItem"
+            type="com.talmir.sip.task.githubpublicrepositories.network.response.models.RepoItem" />
+        <variable
+            name="repoItemClickListener"
+            type="com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.RepoItemClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        style="@style/Widget.MaterialComponents.CardView.Customized"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/recyclerViewItemTopBottomMargin"
+        android:layout_marginBottom="@dimen/fourDp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> repoItemClickListener.onClick(repoItem)}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/repoListItemcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"
+                android:layout_margin="@dimen/recyclerViewStartEndMargin"
+                android:contentDescription="@string/repository_owner_profile_picture"
+                android:scaleType="centerCrop"
+                app:avatar="@{repoItem}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars[2]" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/recyclerViewStartEndMargin"
+                android:layout_marginLeft="@dimen/recyclerViewStartEndMargin"
+                android:layout_marginEnd="@dimen/recyclerViewStartEndMargin"
+                android:layout_marginRight="@dimen/recyclerViewStartEndMargin"
+                android:layout_marginBottom="@dimen/recyclerViewStartEndMargin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView">
+
+                <ImageView
+                    android:id="@+id/repositoryIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/repository_name"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_github_repo" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/recyclerViewStartEndMargin"
+                    android:layout_marginLeft="@dimen/recyclerViewStartEndMargin"
+                    android:text="@{repoItem.name}"
+                    android:textStyle="bold"
+                    android:maxLines="3"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/repositoryIcon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Repository name" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/fourDp"
+                    android:text="@{repoItem.description}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    tools:text="Tooooooooo looooooooooooooooooooong repository descrifhiufehrgiuerhgkhgdfkjghdfjkghdfskjghdkjghdjkldfkgdfjkhgption to test" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/recyclerViewTopBottomMargin"
+                    android:text="@{@string/repository_language(repoItem.language)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    tools:text="Language: Kotlin" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/cardViewBorderRadius"
+                    android:layout_marginRight="@dimen/cardViewBorderRadius"
+                    android:contentDescription="@string/repository_stargazers_count"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintEnd_toStartOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="@+id/textView4"
+                    app:srcCompat="@drawable/ic_github_repo_star" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/sixteenDp"
+                    android:layout_marginRight="@dimen/sixteenDp"
+                    android:text="@{repoItem.starsCount}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                    tools:text="1229" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/cardViewBorderRadius"
+                    android:layout_marginRight="@dimen/cardViewBorderRadius"
+                    android:contentDescription="@string/forks_count"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                    app:layout_constraintEnd_toStartOf="@+id/textView5"
+                    app:layout_constraintTop_toTopOf="@+id/textView5"
+                    app:srcCompat="@drawable/ic_github_fork" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/recyclerViewTopBottomMargin"
+                    android:text="@{repoItem.forksCount}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    tools:text="326" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

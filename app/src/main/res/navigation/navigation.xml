@@ -10,17 +10,27 @@
         android:label="repos_list_fragment"
         tools:layout="@layout/repos_list_fragment" >
         <action
-            android:id="@+id/action_reposListFragment_to_repoDetailsFragment2"
-            app:destination="@id/repoDetailsFragment" />
+            android:id="@+id/action_reposListFragment_to_repoDetailsFragment"
+            app:destination="@id/repoDetailsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/repoDetailsFragment"
         android:name="com.talmir.sip.task.githubpublicrepositories.screens.details.RepoDetailsFragment"
         android:label="repo_details_fragment"
         tools:layout="@layout/repo_details_fragment" >
+        <argument
+            android:name="repoItem"
+            app:argType="com.talmir.sip.task.githubpublicrepositories.network.response.models.RepoItem" />
         <action
-            android:id="@+id/action_repoDetailsFragment2_to_reposListFragment"
+            android:id="@+id/action_repoDetailsFragment_to_reposListFragment"
             app:destination="@id/reposListFragment"
-            app:popUpTo="@+id/reposListFragment" />
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_in_right" />
     </fragment>
 </navigation>

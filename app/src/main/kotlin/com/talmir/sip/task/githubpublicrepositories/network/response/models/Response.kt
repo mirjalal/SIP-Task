@@ -2,10 +2,10 @@ package com.talmir.sip.task.githubpublicrepositories.network.response.models
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * A model class to that matches with GitHub search API response.
+ */
 data class Response(
-    @SerializedName("incomplete_results")
-    val incompleteResults: Boolean = false,
-    val items: List<Item> = listOf(),
-    @SerializedName("total_count")
-    val totalCount: Int = 0
+    @SerializedName("items")
+    val reposList: List<RepoItem> = listOf()
 )
