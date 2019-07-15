@@ -1,7 +1,6 @@
 package com.talmir.sip.task.githubpublicrepositories.network.request
 
 import okhttp3.*
-import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException

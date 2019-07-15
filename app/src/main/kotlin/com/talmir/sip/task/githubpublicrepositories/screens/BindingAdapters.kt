@@ -1,8 +1,6 @@
 package com.talmir.sip.task.githubpublicrepositories.screens
 
-import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -22,6 +20,10 @@ fun RecyclerView.setAdapter(viewModel: ReposListViewModel?) {
     }
 }
 
+/**
+ * Used to set authors' profile pictures in recycler view list items
+ * and details screen.
+ */
 @BindingAdapter("avatar")
 fun ImageView.setAvatar(repoItem: RepoItem?) {
     repoItem?.let {
@@ -30,12 +32,5 @@ fun ImageView.setAvatar(repoItem: RepoItem?) {
             .placeholder(R.drawable.ic_loading_animation)
             .error(R.drawable.ic_broken_image)
             .into(this)
-    }
-}
-
-@BindingAdapter("textAndVisibility")
-fun TextView.setTextAndVisibility(value: String?) {
-    value?.let {
-        text = context.getString(R.string.repository_url).format(it)
     }
 }

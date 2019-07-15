@@ -77,5 +77,8 @@ class ReposListRecyclerViewAdapter(private val itemClickListener: RepoItemClickL
  * A click listener class to handle repository items' clicks
  */
 class RepoItemClickListener(private val repoItemClickListener: (repoItem: RepoItem) -> Unit) {
+    /**
+     * A function that will be fired on recycler view each item's click.
+     */
     fun onClick(repoItem: RepoItem) = repoItemClickListener(repoItem)
 }

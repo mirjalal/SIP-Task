@@ -15,18 +15,6 @@ class ReposListViewModel(pagedListProvider: PagedListProvider<RepoItem?>) : View
 
     private val pagedListData = pagedListProvider.provide()
 
-    private val _repoItemToPass = MutableLiveData<RepoItem>()
-    /**
-     * Will be used in [ReposListFragment] to navigate
-     * [RepoDetailsFragment] with bundle parameters.
-     */
-    val repoItemToPass: LiveData<RepoItem>
-        get() = _repoItemToPass
-
-    fun displayRepoItemDetailsComplete() {
-        _repoItemToPass.value = null
-    }
-
     private val repoItemClickListener = RepoItemClickListener {
         _repoItemToPass.value = it
     }
@@ -37,7 +25,6 @@ class ReposListViewModel(pagedListProvider: PagedListProvider<RepoItem?>) : View
     val adapter = ReposListRecyclerViewAdapter(repoItemClickListener, PaginationItemDiffCallback)
 
     private val _gitHubRepositoriesStatus = MutableLiveData<Int>()
-
     /**
      * because of [_gitHubRepositoriesStatus] is mutable
      * (i.e. could be changed from elsewhere if it is not private),
@@ -45,6 +32,21 @@ class ReposListViewModel(pagedListProvider: PagedListProvider<RepoItem?>) : View
      */
     val gitHubRepositoriesStatus: LiveData<Int>
         get() = _gitHubRepositoriesStatus
+
+    private val _repoItemToPass = MutableLiveData<RepoItem>()
+    /**
+     * Will be used in [ReposListFragment] to navigate
+     * [RepoDetailsFragment] with bundle parameters.
+     */
+    val repoItemToPass: LiveData<RepoItem>
+        get() = _repoItemToPass
+
+    /**
+     * Trigger the [_repoItemToPass] property.
+     */
+    fun displayRepoItemDetailsComplete() {
+        _repoItemToPass.value = null
+    }
 
     /**
      * Set initial value as "LOADING"...

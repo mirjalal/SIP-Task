@@ -20,8 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textStyle="bold"
             android:text="@{repoDetailsViewModel.repoItem.name}"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -66,11 +66,11 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:autoLink="web"
+            android:text="@{@string/repository_url(repoDetailsViewModel.repoItem.gitHubUrl)}"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView9"
-            app:textAndVisibility="@{repoDetailsViewModel.repoItem.gitHubUrl}"
             tools:text="GitHub link: www.http.com" />
 
         <LinearLayout
@@ -176,8 +176,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
             android:autoLink="web"
-            android:textStyle="italic"
             android:text="@{@string/repository_author_profile(repoDetailsViewModel.repoItem.owner.profileUrl)}"
+            android:textStyle="italic"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             tools:text="Visit profile: github.com/mirjalal" />

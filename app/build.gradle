@@ -4,6 +4,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xmaxerrs" << "565"
+    }
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
@@ -103,6 +109,13 @@ dependencies {
 
     // glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
+
+    // dagger2 & its compiler
+    implementation "com.google.dagger:dagger:$version_dagger"
+    kapt "com.google.dagger:dagger-compiler:$version_dagger"
+    implementation "com.google.dagger:dagger-android:$version_dagger"
+    implementation "com.google.dagger:dagger-android-support:$version_dagger"
+    kapt "com.google.dagger:dagger-android-processor:$version_dagger"
 
     // test dependencies
     testImplementation 'junit:junit:4.12'
