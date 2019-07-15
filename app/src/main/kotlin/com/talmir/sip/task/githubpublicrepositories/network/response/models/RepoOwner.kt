@@ -13,4 +13,8 @@ data class RepoOwner(
     val avatar: String = "",
 
     @SerializedName("login")
-    val name: String = "") : Parcelable
+    val name: String = "",
+
+    @SerializedName("html_url")
+    val profileUrl: String = ""
+) : Parcelable

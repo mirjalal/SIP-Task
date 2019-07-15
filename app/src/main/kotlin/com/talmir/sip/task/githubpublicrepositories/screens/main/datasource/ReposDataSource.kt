@@ -10,6 +10,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlin.coroutines.CoroutineContext
 
+/**
+ * Represents a class that manages data source for recycler view.
+ */
 class ReposDataSource : PageKeyedDataSource<Int, RepoItem>(), CoroutineScope {
     private val apiService = GitHubReposApi.gitHubReposService
 
@@ -74,7 +77,7 @@ class ReposDataSource : PageKeyedDataSource<Int, RepoItem>(), CoroutineScope {
      * and prevent further loading.
      *
      * @param params Parameters for the load, including the key for the new page, and requested load
-     * size.
+     *               size.
      * @param callback Callback that receives loaded data.
      */
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, RepoItem>) {
@@ -86,7 +89,6 @@ class ReposDataSource : PageKeyedDataSource<Int, RepoItem>(), CoroutineScope {
                     val repoItems = apiResponse.body()?.reposList
                     callback.onResult(repoItems.orEmpty(), params.key.inc())
                 }
-                false -> callback.onResult(listOf<RepoItem?>(null), null)
             }
         }
     }

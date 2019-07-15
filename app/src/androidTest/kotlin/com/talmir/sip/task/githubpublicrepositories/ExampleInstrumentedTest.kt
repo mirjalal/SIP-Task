@@ -17,12 +17,6 @@ import java.util.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
-    @Test fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.talmir.sip.task.githubpublicrepositories", appContext.packageName)
-    }
-
 //    @Test fun formatDate() {
 //        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
 //        format.timeZone = TimeZone.getTimeZone("GMT")
@@ -38,6 +32,9 @@ class ExampleInstrumentedTest {
         SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
     }
 
+    /**
+     * A test to format the given date.
+     */
     @Test fun formatDate() {
 //        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
 //        format.timeZone = TimeZone.getTimeZone("GMT")

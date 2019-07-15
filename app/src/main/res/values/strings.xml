@@ -3,12 +3,28 @@
     <string name="repository_owner_profile_picture">Repository owner profile picture</string>
     <string name="repository_name">Repository name</string>
     <string name="repository_stargazers_count">Repository stargazers count</string>
-    <string name="forks_count">Forks count</string>
+    <string name="repository_forks_count">Forks count</string>
     <string name="repository_owner">Repository owner</string>
     <string name="repository_language">Language: %s</string>
     <string name="error_while_loading_repositories">Error while loading repositories</string>
     <string name="no_internet_connection">No internet connection</string>
     <string name="repository_details">Repository: %s</string>
     <string name="repository_author">The author: %s</string>
-    <string name="repository_homepage">Homepage: %s</string>
+    <string name="repository_url">GitHub link: %s</string>
+    <string name="repository_license">License: %s</string>
+    <string name="repository_author_profile">Visit profile: %s</string>
+
+    <plurals name="stars_count">
+        <!-- https://www.quackit.com/character_sets/emoji/ -->
+        <item quantity="zero">Nobody starred 😐</item>
+        <item quantity="one">A person starred</item>
+        <item quantity="other">%s persons starred 😊</item>
+    </plurals>
+
+    <plurals name="forks_count">
+        <!-- https://www.quackit.com/character_sets/emoji/ -->
+        <item quantity="zero">Nobody forked 😐</item>
+        <item quantity="one">A person forked</item>
+        <item quantity="other">%s persons forked 😊</item>
+    </plurals>
 </resources>

@@ -28,9 +28,9 @@
         <action
             android:id="@+id/action_repoDetailsFragment_to_reposListFragment"
             app:destination="@id/reposListFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_in_right" />
+            app:enterAnim="@anim/fade_out"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 </navigation>

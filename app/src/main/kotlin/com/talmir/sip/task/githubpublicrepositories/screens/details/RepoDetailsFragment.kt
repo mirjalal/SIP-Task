@@ -22,16 +22,13 @@ class RepoDetailsFragment : Fragment() {
     ): View? {
         val binding = RepoDetailsFragmentBinding.inflate(inflater)
 
-        val repoItem = RepoDetailsFragmentArgs.fromBundle(arguments!!).repoItem
+        val repoItem = RepoDetailsFragmentArgs.fromBundle(requireArguments()).repoItem
         val factory = RepoDetailsViewModelFactory(repoItem)
         val viewModel =
             ViewModelProviders.of(this, factory).get(RepoDetailsViewModel::class.java)
 
         binding.repoDetailsViewModel = viewModel
         binding.lifecycleOwner = this
-
-//            getString(R.string.repository_details).format(repoItem.name)
-
 
         return binding.root
     }

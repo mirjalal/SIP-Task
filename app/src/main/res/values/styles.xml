@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
@@ -8,6 +8,13 @@
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
     </style>
+
+    <!--<style name="AppTheme.Launcher" parent="AppTheme">-->
+        <!--<item name="windowActionBar">false</item>-->
+        <!--<item name="windowNoTitle">true</item>-->
+        <!--<item name="android:navigationBarColor" tools:targetApi="lollipop">#393e46</item>-->
+        <!--<item name="android:windowBackground">@drawable/splash_screen</item>-->
+    <!--</style>-->
 
     <style name="Widget.MaterialComponents.CardView.Customized" parent="Widget.MaterialComponents.CardView">
         <item name="strokeColor">@color/cardViewBorderColor</item>

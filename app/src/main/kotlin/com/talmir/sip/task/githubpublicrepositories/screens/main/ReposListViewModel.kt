@@ -68,8 +68,10 @@ class ReposListViewModel(pagedListProvider: PagedListProvider<RepoItem?>) : View
             } else {
                 if (it[0] != null)
                     _gitHubRepositoriesStatus.value = GitHubRepositoriesStatus.DONE
-                else
+                else {
+                    adapter.submitList(null) // VERY IMPORTANT!
                     _gitHubRepositoriesStatus.value = GitHubRepositoriesStatus.ERROR
+                }
             }
         })
     }

@@ -16,11 +16,12 @@
 
         <TextView
             android:id="@+id/textView6"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textStyle="bold"
             android:text="@{repoDetailsViewModel.repoItem.name}"
-            style="@style/TextAppearance.MaterialComponents.Headline4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,15 +33,29 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="2dp"
             android:text="@{repoDetailsViewModel.repoItem.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
             tools:text="Repo description will be appeared here" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@{@string/repository_license(repoDetailsViewModel.repoItem.license.name)}"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            tools:text="License: MIT License" />
 
         <TextView
             android:id="@+id/textView8"
@@ -50,42 +65,122 @@
             android:layout_marginLeft="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:textStyle="italic"
             android:autoLink="web"
-            app:textAndVisibility="@{repoDetailsViewModel.repoItem}"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
-            tools:text="www.http.com" />
+            app:layout_constraintTop_toBottomOf="@id/textView9"
+            app:textAndVisibility="@{repoDetailsViewModel.repoItem.gitHubUrl}"
+            tools:text="GitHub link: www.http.com" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/custom_rectangle"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/repository_stargazers_count"
+                app:srcCompat="@drawable/ic_github_star" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="@{@plurals/stars_count(repoDetailsViewModel.repoItem.starsCountInt, repoDetailsViewModel.repoItem.starsCount)}"
+                tools:text="123 stars" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/custom_rectangle"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/repository_forks_count"
+                app:srcCompat="@drawable/ic_github_fork" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="@{@plurals/forks_count(repoDetailsViewModel.repoItem.forksCountInt, repoDetailsViewModel.repoItem.forksCount)}"
+                tools:text="631 forks" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="@dimen/details_screen_avatar_size"
-            android:layout_height="@dimen/details_screen_avatar_size"
-            android:layout_marginTop="10dp"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:contentDescription="@string/repository_owner"
             app:avatar="@{repoDetailsViewModel.repoItem}"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.047"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
             tools:srcCompat="@tools:sample/avatars[2]" />
 
         <TextView
+            android:id="@+id/textView10"
+            style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:gravity="center"
-            android:text="@{@string/repository_owner(repoDetailsViewModel.repoItem.owner.name)}"
-            style="@style/TextAppearance.MaterialComponents.Caption"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            tools:text="The author: blabla" />
+            android:text="@{@string/repository_author(repoDetailsViewModel.repoItem.owner.name)}"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            tools:text="The author: mirjalal" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:autoLink="web"
+            android:textStyle="italic"
+            android:text="@{@string/repository_author_profile(repoDetailsViewModel.repoItem.owner.profileUrl)}"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            tools:text="Visit profile: github.com/mirjalal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

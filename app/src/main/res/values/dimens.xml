@@ -11,5 +11,4 @@
     <dimen name="twelveDp">12dp</dimen>
     <dimen name="sixteenDp">16dp</dimen>
     <dimen name="avatar_size">64dp</dimen>
-    <dimen name="details_screen_avatar_size">128dp</dimen>
 </resources>

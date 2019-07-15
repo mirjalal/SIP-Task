@@ -21,68 +21,19 @@ data class RepoItem(
     @SerializedName("description")
     private val _description: String?,
 
-    @SerializedName("homepage")
-    val homepageUrl: String = "",
-
-    @SerializedName("commits_url")
-    private val _commitsUrl: String = "",
-
     @SerializedName("html_url")
-    val htmlUrl: String = "",
+    val gitHubUrl: String = "",
 
     @SerializedName("language")
     private val _language: String?,
 
-    @SerializedName("created_at")
-    private val _createdAt: String = "",
-
-    @SerializedName("pushed_at")
-    private val _pushedAt: String = "",
-
-    @SerializedName("updated_at")
-    private val _updatedAt: String = "",
-
     @SerializedName("stargazers_count")
-    private val _starsCount: Int = 0,
+    val starsCountInt: Int = 0,
 
     @SerializedName("forks_count")
-    private val _forksCount: Int = 0,
+    val forksCountInt: Int = 0,
 
     val license: RepoLicense = RepoLicense()) : Parcelable {
-
-    @IgnoredOnParcel
-    private val apiDateFormat: SimpleDateFormat by lazy {
-        SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
-    }
-
-    @IgnoredOnParcel
-    private val localDateFormat: SimpleDateFormat by lazy {
-        SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-    }
-
-    /**
-     * Remove unnecessary parts from [_commitsUrl] and set new value to [commitsUrl].
-     */
-    val commitsUrl: String
-        get() = if (_commitsUrl.isNotBlank()) _commitsUrl.replace("api.", "").replace("repos/", "") else ""
-
-    /**
-     * Parse [_createdAt] as desired format mentioned in [localDateFormat].
-     */
-    val createdAt: String
-        get() = localDateFormat.format(apiDateFormat.parse(_createdAt)!!)
-
-    /**
-     * Parse [_pushedAt] as desired format mentioned in [localDateFormat].
-     */
-    val pushedAt: String
-        get() = localDateFormat.format(apiDateFormat.parse(_pushedAt)!!)
-
-    /**
-     * Parse [_updatedAt] as desired format mentioned in [localDateFormat].
-     */
-    val updatedAt: String
-        get() = localDateFormat.format(apiDateFormat.parse(_updatedAt)!!)
 
     /**
      * Due to it's possible to get null from GitHub API, escape from it
@@ -96,19 +47,19 @@ data class RepoItem(
      * Elvis operator again :D
      */
     val language: String
-        get() = _language ?: "NaN"
+        get() = _language ?: "---"
 
     /**
-     * [_starsCount] type is [Int] and we cannot set [Int] value to
+     * [starsCountInt] type is [Int] and we cannot set [Int] value to
      * [TextView], thus convert it simply.
      */
     val starsCount: String
-        get() = _starsCount.toString()
+        get() = starsCountInt.toString()
 
     /**
-     * [_forksCount] type is [Int] and we cannot set [Int] value to
+     * [forksCountInt] type is [Int] and we cannot set [Int] value to
      * [TextView], thus convert it simply.
      */
     val forksCount: String
-        get() = _forksCount.toString()
+        get() = forksCountInt.toString()
 }

@@ -1,4 +1,4 @@
-package com.talmir.sip.task.githubpublicrepositories.screens.main
+package com.talmir.sip.task.githubpublicrepositories.screens
 
 import android.view.View
 import android.widget.ImageView
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.talmir.sip.task.githubpublicrepositories.R
 import com.talmir.sip.task.githubpublicrepositories.network.response.models.RepoItem
+import com.talmir.sip.task.githubpublicrepositories.screens.main.ReposListViewModel
 
 /**
  * A helper method to bind [ReposListViewModel.adapter] to recycler view.
@@ -35,7 +36,6 @@ fun ImageView.setAvatar(repoItem: RepoItem?) {
 @BindingAdapter("textAndVisibility")
 fun TextView.setTextAndVisibility(value: String?) {
     value?.let {
-        visibility = if (it.isEmpty()) View.GONE else View.VISIBLE
-        text = context.getString(R.string.repository_homepage).format(it)
+        text = context.getString(R.string.repository_url).format(it)
     }
 }
