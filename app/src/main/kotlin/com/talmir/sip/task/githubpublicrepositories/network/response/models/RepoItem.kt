@@ -2,10 +2,7 @@ package com.talmir.sip.task.githubpublicrepositories.network.response.models
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
-import java.text.SimpleDateFormat
-import java.util.*
 
 /**
  * A model class that holds GitHub repository details.
