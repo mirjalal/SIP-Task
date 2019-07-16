@@ -5,7 +5,7 @@ import androidx.paging.PagedList
 import com.talmir.sip.task.githubpublicrepositories.network.response.models.RepoItem
 import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.RepoItemClickListener
 import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.ReposListRecyclerViewAdapter
-import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.pagination.PaginationItemDiffCallback
+import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.PaginationItemDiffCallback
 import com.talmir.sip.task.githubpublicrepositories.utils.GitHubRepositoriesStatus
 import javax.inject.Inject
 
@@ -24,7 +24,9 @@ class ReposListViewModel @Inject constructor(/*pagedListProvider: PagedListProvi
     /**
      * An adapter to be attached to recycler view
      */
-    val adapter = ReposListRecyclerViewAdapter(repoItemClickListener, PaginationItemDiffCallback)
+    val adapter = ReposListRecyclerViewAdapter(repoItemClickListener,
+        PaginationItemDiffCallback
+    )
 
     private val _gitHubRepositoriesStatus = MutableLiveData<Int>()
     /**

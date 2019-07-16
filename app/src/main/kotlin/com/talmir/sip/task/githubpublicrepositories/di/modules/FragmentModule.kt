@@ -10,6 +10,6 @@ abstract class FragmentModule {
     @ContributesAndroidInjector
     abstract fun contributeReposListFragment(): ReposListFragment
 
-//    @ContributesAndroidInjector
-//    abstract fun contributeRepoDetailsFragment(): RepoDetailsFragment
+    @ContributesAndroidInjector
+    abstract fun contributeRepoDetailsFragment(): RepoDetailsFragment
 }

@@ -1,4 +1,4 @@
-package com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.pagination
+package com.talmir.sip.task.githubpublicrepositories.screens.main.datasource
 
 import androidx.recyclerview.widget.DiffUtil
 import com.talmir.sip.task.githubpublicrepositories.network.response.models.RepoItem

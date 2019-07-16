@@ -9,8 +9,14 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+/**
+ *
+ */
 @Module
 class PagedListProviderImplModule {
+    /**
+     *
+     */
     @Provides
     @Singleton
     fun providePagedListProvider(): LiveData<PagedList<RepoItem?>> {

@@ -12,6 +12,9 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
+/**
+ * Main component class
+ */
 @Component(modules = [
     ActivityModule::class,
     FragmentModule::class,

@@ -10,9 +10,16 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
+/**
+ * A module that helps use [ViewModelProvider.Factory] object
+ * during the [ViewModel] object initialization.
+ */
 @Module
 internal abstract class ViewModelModule {
 
+    /**
+     * Will be injected in fragment classes
+     */
     @Binds
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
@@ -33,8 +40,8 @@ internal abstract class ViewModelModule {
      * with the [RepoDetailsViewModel] as key, and a [Provider]
      * that will build a [RepoDetailsViewModel] object.
      */
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(RepoDetailsViewModel::class)
-//    protected abstract fun repoDetailsViewModel(reposListViewModel: RepoDetailsViewModel): ViewModel
+    @Binds
+    @IntoMap
+    @ViewModelKey(RepoDetailsViewModel::class)
+    protected abstract fun repoDetailsViewModel(reposListViewModel: RepoDetailsViewModel): ViewModel
 }

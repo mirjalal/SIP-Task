@@ -4,6 +4,11 @@ import androidx.lifecycle.ViewModel
 import dagger.MapKey
 import kotlin.reflect.KClass
 
+/**
+ * Custom annotation class which used to
+ * make [ViewModel] instances where constructor
+ * parameters needed.
+ */
 @Target(AnnotationTarget.FUNCTION,
         AnnotationTarget.PROPERTY_GETTER,
         AnnotationTarget.PROPERTY_SETTER)
