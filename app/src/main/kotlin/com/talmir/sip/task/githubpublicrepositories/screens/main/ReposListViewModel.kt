@@ -1,19 +1,21 @@
 package com.talmir.sip.task.githubpublicrepositories.screens.main
 
 import androidx.lifecycle.*
+import androidx.paging.PagedList
 import com.talmir.sip.task.githubpublicrepositories.network.response.models.RepoItem
 import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.RepoItemClickListener
 import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.ReposListRecyclerViewAdapter
-import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.pagination.PagedListProvider
 import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.pagination.PaginationItemDiffCallback
 import com.talmir.sip.task.githubpublicrepositories.utils.GitHubRepositoriesStatus
+import javax.inject.Inject
 
 /**
  * ViewModel for [ReposListFragment].
  */
-class ReposListViewModel(pagedListProvider: PagedListProvider<RepoItem?>) : ViewModel() {
+class ReposListViewModel @Inject constructor(/*pagedListProvider: PagedListProvider<RepoItem?>*/) : ViewModel() {
 
-    private val pagedListData = pagedListProvider.provide()
+    @Inject
+    lateinit var pagedListData: LiveData<PagedList<RepoItem?>>//= pagedListProvider.providePagedList()
 
     private val repoItemClickListener = RepoItemClickListener {
         _repoItemToPass.value = it

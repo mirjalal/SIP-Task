@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.talmir.sip.task.githubpublicrepositories.network.response.models.RepoItem
 import com.talmir.sip.task.githubpublicrepositories.screens.main.datasource.pagination.PagedListProvider
+import javax.inject.Inject
 
 /**
  * As we know, we cannot create instantiate any [ViewModel]
@@ -19,7 +20,7 @@ class ReposListViewModelFactory(private val pagedListProvider: PagedListProvider
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         @Suppress("unchecked_cast")
         if (modelClass.isAssignableFrom(ReposListViewModel::class.java))
-            return ReposListViewModel(pagedListProvider) as T
+            return ReposListViewModel(/*pagedListProvider*/) as T
         throw IllegalArgumentException("Unknown ViewModel class ${modelClass.name}")
     }
 }

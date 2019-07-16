@@ -1,6 +1,7 @@
 package com.talmir.sip.task.githubpublicrepositories.network.request
 
 import com.talmir.sip.task.githubpublicrepositories.network.response.models.Response
+import dagger.Provides
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,7 +17,6 @@ internal interface GitHubReposService {
  * Holds an object reference of [GitHubReposService] to consume the API.
  */
 object GitHubReposApi {
-    internal val gitHubReposService: GitHubReposService by lazy {
+    internal val gitHubReposService: GitHubReposService =
         retrofit.create(GitHubReposService::class.java)
-    }
 }

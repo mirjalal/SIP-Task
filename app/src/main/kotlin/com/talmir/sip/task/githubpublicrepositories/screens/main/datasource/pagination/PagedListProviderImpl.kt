@@ -12,10 +12,7 @@ import com.talmir.sip.task.githubpublicrepositories.network.response.models.Repo
 class PagedListProviderImpl(private val factory: DataSource.Factory<Int, RepoItem?>) :
     PagedListProvider<RepoItem?> {
 
-    /**
-     * Provides list to set recycler view's adapter.
-     */
-    override fun provide(): LiveData<PagedList<RepoItem?>> {
+    override fun providePagedList(): LiveData<PagedList<RepoItem?>> {
         return LivePagedListBuilder(
             factory, PagedList.Config.Builder()
                 .setEnablePlaceholders(true)

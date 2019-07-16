@@ -4,11 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.talmir.sip.task.githubpublicrepositories.network.response.models.RepoItem
+import javax.inject.Inject
 
 /**
  * ViewModel for [RepoDetailsFragment].
  */
-class RepoDetailsViewModel(repositoryItem: RepoItem) : ViewModel() {
+class RepoDetailsViewModel @Inject constructor(repositoryItem: RepoItem) : ViewModel() {
 
     private val _repoItem = MutableLiveData<RepoItem>()
     val repoItem: LiveData<RepoItem>

@@ -12,5 +12,5 @@ interface PagedListProvider<Value> {
     /**
      * Provide an observable [PagedList] item.
      */
-    fun provide(): LiveData<PagedList<Value>>
+    fun providePagedList(): LiveData<PagedList<Value>>
 }

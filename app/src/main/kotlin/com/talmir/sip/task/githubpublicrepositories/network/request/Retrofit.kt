@@ -4,6 +4,7 @@ import okhttp3.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
+import javax.inject.Singleton
 
 internal class LoggingInterceptor : Interceptor {
     @Throws(IOException::class)
@@ -27,18 +28,19 @@ internal class LoggingInterceptor : Interceptor {
             )
             response
         } catch (e: Exception) {
-            val rBuilder = Response.Builder()
+            Response.Builder()
                 .code(0)
                 .request(request)
                 .protocol(Protocol.HTTP_1_1)
                 .message("")
                 .header("headerName", request.headers().toString())
                 .body(ResponseBody.create(null, "no_content"))
-            rBuilder.build()
+                .build()
         }
     }
 }
 
+@Singleton
 private val okHttpClient: OkHttpClient = OkHttpClient.Builder()
     .addInterceptor(LoggingInterceptor())
     .addNetworkInterceptor(LoggingInterceptor())
@@ -48,6 +50,7 @@ private val okHttpClient: OkHttpClient = OkHttpClient.Builder()
  * Use the retrofit builder to build a retrofit object using a gson
  * converter with our gsonConverterFactory object pointing to the desired URL
  */
+@Singleton
 val retrofit: Retrofit = Retrofit.Builder()
     .baseUrl("https://api.github.com/search/")
     .client(okHttpClient)
