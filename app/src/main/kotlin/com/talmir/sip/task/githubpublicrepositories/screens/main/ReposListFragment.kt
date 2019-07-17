@@ -88,6 +88,5 @@ class ReposListFragment : Fragment() {
                 viewModel.displayRepoItemDetailsComplete()
             }
         })
-
     }
 }

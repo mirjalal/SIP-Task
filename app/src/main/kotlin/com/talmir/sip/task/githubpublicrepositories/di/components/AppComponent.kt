@@ -2,9 +2,7 @@ package com.talmir.sip.task.githubpublicrepositories.di.components
 
 import android.app.Application
 import com.talmir.sip.task.githubpublicrepositories.App
-import com.talmir.sip.task.githubpublicrepositories.di.modules.ActivityModule
-import com.talmir.sip.task.githubpublicrepositories.di.modules.FragmentModule
-import com.talmir.sip.task.githubpublicrepositories.di.modules.PagedListProviderImplModule
+import com.talmir.sip.task.githubpublicrepositories.di.modules.*
 import com.talmir.sip.task.githubpublicrepositories.di.modules.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component

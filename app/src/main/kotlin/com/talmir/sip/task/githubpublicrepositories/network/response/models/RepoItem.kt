@@ -2,11 +2,15 @@ package com.talmir.sip.task.githubpublicrepositories.network.response.models
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import dagger.Provides
 import kotlinx.android.parcel.Parcelize
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * A model class that holds GitHub repository details.
  */
+@Singleton
 @Parcelize
 data class RepoItem(
     val id: Int,

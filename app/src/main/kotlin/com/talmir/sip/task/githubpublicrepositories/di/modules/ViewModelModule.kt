@@ -40,8 +40,8 @@ internal abstract class ViewModelModule {
      * with the [RepoDetailsViewModel] as key, and a [Provider]
      * that will build a [RepoDetailsViewModel] object.
      */
-    @Binds
-    @IntoMap
-    @ViewModelKey(RepoDetailsViewModel::class)
-    protected abstract fun repoDetailsViewModel(reposListViewModel: RepoDetailsViewModel): ViewModel
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(RepoDetailsViewModel::class)
+//    protected abstract fun repoDetailsViewModel(reposListViewModel: RepoDetailsViewModel): ViewModel
 }
